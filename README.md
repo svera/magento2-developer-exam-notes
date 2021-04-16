@@ -139,7 +139,8 @@ are installed via Composer.
 ---
 > How do different modules interact with each other?
 
-
+The way modules in Magento 2 interact with each other is by means of dependency injection, Service Contracts or Data Service Contracts. An important aspect of interaction is the scope in which the component is located. In other words, a Magento area.
+Some benefits of using service contracts is that these contracts ensure a well-defined, durable API that other modules and third-party extensions can implement. Also, these contracts make it easy to configure services as web APIs.
 
 ---
 > What side effects can come from this interaction?
