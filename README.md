@@ -145,6 +145,9 @@ Some benefits of using service contracts is that these contracts ensure a well-d
 ---
 > What side effects can come from this interaction?
 
+If modules use Dependency injection, they can load in the wrong order or try to redefine the already redefined functionality of the module. To solve this problem, you should use sequence in module.xml.
+
+If the modules use other modules’ logic and the module, whose logic is used, is disabled, dependencies will not be used and an error will occur when executing the code.
 
 
 ---
