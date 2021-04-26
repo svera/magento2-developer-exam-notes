@@ -252,7 +252,7 @@ checkout on the frontend is also a UI component.
 ---
 > What are the naming conventions, and how are namespaces established?
 
-The naming of classes and namespaces in Magento 2 conforms to the PSR-4 standard. Each class is located in a separate file and is declared in the namespace corresponding to a pattern of the type: {Vendor} \ {Module} \ {Path_1} \ … \ {Path_N}, where each {Path_N} corresponds to a specific folder containing the class file. The class names themselves correspond to the StudlyCaps notation.
+The naming of classes and namespaces in Magento 2 conforms to the PSR-4 standard. Each class is located in a separate file and is declared in the namespace corresponding to a pattern of the type: `Vendor\Module\Path_1\…\Path_N`, where each `Path_N` corresponds to a specific folder containing the class file. The class names themselves correspond to the StudlyCaps notation.
 
 ---
 > How can you identify the files responsible for some functionality?
