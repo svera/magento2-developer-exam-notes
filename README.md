@@ -458,7 +458,7 @@ Plugins have the following limitations:
 The `sortOrder` from the plugins declared in `di.xml` determines the plugin’s prioritisation when more than one plugin is observing the same method.
 
 The `Magento\Framework\Interception\PluginListInterface` which is implemented by `Magento\Framework\Interception\PluginList\PluginList`
-is responsible to define when to call the `befor`e, `around`, or `after` methods respecting this prioritisation.
+is responsible to define when to call the `before`, `around`, or `after` methods respecting this prioritisation.
 
 If two or more plugins have the same `sortOrder` value or do not specify it, the component load order declared in the `<sequence>` node from
 `module.xml` and the area will define the merge sequence. The component load order can be checked in `app/etc/config.php`.
