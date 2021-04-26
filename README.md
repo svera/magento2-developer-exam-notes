@@ -378,6 +378,8 @@ A virtual type allows you to create an instance of an existing class that has cu
 
 ---
 > How would you obtain a class instance from different places in the code?
+ 
+There are 2 ways to create new instance of objects in Magento 2. One is constructor injection. Second one is using a factory. Using Object manager directly in code should be avoided as much as possible.
 
 ---
 #### 1.5. Demonstrate Ability To Use Plugins
