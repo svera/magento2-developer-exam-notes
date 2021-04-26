@@ -252,10 +252,16 @@ checkout on the frontend is also a UI component.
 ---
 > What are the naming conventions, and how are namespaces established?
 
-The naming of classes and namespaces in Magento 2 conforms to the PSR-4 standard. Each class is located in a separate file and is declared in the namespace corresponding to a pattern of the type: `Vendor\Module\Path_1\…\Path_N`, where each `Path_N` corresponds to a specific folder containing the class file. The class names themselves correspond to the StudlyCaps notation.
+The naming of classes and namespaces in Magento 2 conforms to the PSR-4 standard. Each class is located in a separate file and is declared in the namespace corresponding to a pattern of the type: `{Vendor}\{Module}\{Path_1}\…\{Path_N}`, where each `{Path_N}` corresponds to a specific folder containing the class file. The class names themselves correspond to the StudlyCaps notation.
 
 ---
 > How can you identify the files responsible for some functionality?
+
+When searching for certain class files, remember that each class is in a separate file and the class namespace fully corresponds to the directory structure in which the file of this class is located. The configuration file of the `di.xml` module (`etc/di.xml`), which contains a list of the various module classes, can help you. To search for block files, you can use layout files from the module’s `view/{area}/{layout}` directory. You can also use the Template Path Hints tool to search for blocks and their associated template files.
+
+Enable the Template Path Hints in the admin panel by navigating to Stores -> Configuration -> Advanced -> Developer -> Debug.
+
+Controller files are located at the following folders of the module: `Controllers/{Controller_Name}/{Action_name}`.
 
 ---
 #### 1.3. Utilise Configuration and Configuration Variables Scope
