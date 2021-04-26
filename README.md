@@ -1693,148 +1693,25 @@ Dependencies between patch files are managed via the patch file's `getDependenci
 return an array of all of the patch files that are required to be executed **before** it.
 
 ---
-### 5.0. Entity-Attribute-Value (EAV) 
-#### 5.1. EAV Model Concepts
-> Describe the EAV hierarchy structure.
-> What happens when a new attribute is added to the system?
-> What is the role of attribute sets and attribute groups?
-> How are attributes presented in the admin?
-> Describe how EAV data storage works in Magento.
-> Which additional options do you have when saving EAV entities?
-> How do you create customizations based on changes to attribute values?
-> Describe the key differences between EAV and flat table collections.
-> In which situations would you use EAV for a new entity?
-> What are the pros and cons of EAV architecture?
-
-#### 5.2. EAV Loading & Saving
-> Describe the EAV load and save process and differences from the flat table load and save process.
-> What happens when an EAV entity has too many attributes?
-> How does the number of websites/stores affect the EAV load/save process?
-> How would you customize the load and save process for an EAV entity in the situations described here?
-
-#### 5.3. Attribute Management
-> Describe EAV attributes, including the frontend/source/backend structure.
-
-
-
----
-> How would you add dropdown/multiselect attributes?
-
-
-
----
-> What other possibilities do you have when adding an attribute (to a product, for example)?
-
-
-
----
-> Describe how to implement the interface for attribute frontend models.
-
-
-
----
-> What is the purpose of this interface?
-
-
-
----
-> How can you render your attribute value on the frontend?
-
-
-
----
-> Identify the purpose and describe how to implement the interface for attribute source models.
-
-
-
----
-> For a given dropdown/multiselect attribute, how can you specify and manipulate its list of options?
-
-
-
----
-> Identify the purpose and describe how to implement the interface for attribute backend models.
-
-
-
----
-> How (and why) would you create a backend model for an attribute?
-
-
-
----
-> Describe how to create and customize attributes.
-
-
-
----
-> How would you add a new attribute to the product, category, or customer entities?
-
-
-
----
-> What is the difference between adding a new attribute and modifying an existing one?
-
-
-
----
-### 6.0. Developing With Adminhtml
+### 5.0. Developing With Adminhtml
 | Certification | Exam Content |
 | :-----------: | :----------: |
 | Associate Developer | 11% |
 | Professional Developer | 10% |
 
-#### 6.1. Adminhtml Structure/Architecture
-> Describe the difference between Adminhtml and frontend.
+#### 5.1 Create a controller for an admin router
+> How would you create an admin controller?
+> How do you ensure the right level of security for a new controller?
 
-
-
----
-> What additional tools and requirements exist in the admin?
-
-
-
----
-#### 6.2. Form & Grid Widgets
-> Define form structure, form templates, grids, grid containers, and elements.
-
-
-
----
-> What steps are needed to display a grid or form?
-
-
-
---- 
-> How is data provided to the grid or form? How can this be process be customized or extended?
-
-
-
----
-> Describe how to create a simple form and grid for a custom entity.
-
-
-
----
-> Given a specific entity with different types of fields (text, dropdown, image, file, date, and so on) how would you create a grid and a form?
-
-
-
----
-#### 6.3. System Configuration & Scopes
+#### 5.2 Define basic terms and elements of system configuration, including scopes, website, store, store view
 > How would you add a new system configuration option?
-
----
 > What is the difference in this process for different option types (secret, file)?
 
----
-> How do you access system configuration options programmatically?
+#### 5.3 Define / identify basic terms and elements of ACL
+> How would you add a new ACL resource to a new entity?
+> How do you manage the existing ACL hierarchy?
 
-You can use the functions contained within the `Magento\Framework\App\Config\ScopeConfigInterface` class, passing the 
-configuration path as the minimum required parameter e.g. `web/secure/base_url`.
-
----
-#### 6.4. ACL & User Permissions
+#### 5.4 Set up a menu item
 > How do you add a new menu item to a given tab?
 
 Adminhtml menu items are configured in `etc/adminhtml/menu.xml`. To add a new menu item, edit this file:
@@ -1860,20 +1737,15 @@ Adminhtml menu items are configured in `etc/adminhtml/menu.xml`. To add a new me
    </menu>
 </config>
 ```
-
----
 > How do you add a new tab to the Admin menu?
 
 Do not specify a `parent` attribute in the `<add />` node.
 
----
+#### 5.5 Create appropriate permissions for users
 > How are menu items related to ACL permissions?
-
 Menu items are not shown to users with insufficient permissions to access them.
 
----
 > How do you add a new user with given set of permissions?
-
 Navigate to `System > Permissions > All Users` in Magento admin, add a new user, and set their role under `User Information > User Role`.
 
 This can also be done programmatically:
