@@ -1401,7 +1401,10 @@ The Magento ORM elements are:
 ---
 > How do they relate to one another?
 
-
+- Models are like a black box which provides a layer of abstraction on top of the resource models. The fetching, extraction, and manipulation of data occur through models. As a rule of thumb, every entity we create (i.e. every table we create in our database) should have its own model class. Every model extends the `Magento\Framework\Model\AbstractModelclass`, which inherits the `\Magento\Framework\DataObjectclass`, hence, we can call the setDataand getData functions on our model, to get or set the data of a model respectively.
+- All of the actual database operations are executed by the resource model. Every model must have a resource model, since all of the methods of a resource model expects a model as its first parameter. All resource models must extend the
+`Magento\Framework\Model\ResourceModel\Db\AbstractDbclass`.
+- Collections are used when we want to fetch multiple rows from our table. Meaning collections are a group of models.
 
 ---
 > Describe repositories and data API classes.
