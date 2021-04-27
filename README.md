@@ -314,6 +314,51 @@ Configures tabs, sections, groups, and fields found in `Store > Configuration` i
 ---
 > How do you identify the configuration scope for a given variable?
 
+Scope values come from the store, store_group, and store_website tables.
+
+The store table specifies store view names and codes
+The store_website table specifies website names and codes
+You can also find the code values using the Magento Admin.
+
+How to read the table:
+
+- Path in Magento Admin column
+
+Values before the comma are paths in the Admin navigation. Values after the comma are options in the right pane.
+
+- Variable name column is the name of the corresponding environment variable.
+
+You have the option of specifying system values for these configuration parameters as environment variables if you wish.
+
+  - The entire variable name is always ALL CAPS
+  - Start a variable name with CONFIG__ (note two underscore characters)
+  - You can find the <STORE_VIEW_CODE> or <WEBSITE_CODE> portion of a variable name in either the Magento Admin or the Magento database, as indicated in the following sections.
+
+**Find a website or store view scope in the Magento Admin**
+The following table summarizes how to find website or store view value in the Admin.
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Path in Magento Admin</th>
+      <th>Variable name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create, edit, delete store views</td>
+      <td><strong>Stores</strong> &gt; <strong>All Stores</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG__STORES__&lt;STORE_VIEW_CODE&gt;__&lt;SYSTEM__VARIABLE__NAME&gt;</code></td>
+    </tr>
+    <tr>
+      <td>Create, edit, delete websites</td>
+      <td><strong>Stores</strong> &gt; <strong>All Stores</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">CONFIG__WEBSITES__&lt;WEBSITE_CODE&gt;__&lt;SYSTEM__VARIABLE__NAME&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
 ---
 > How do native Magento scopes (for example, price or inventory) affect development and decision-making processes?
 
