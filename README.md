@@ -314,11 +314,11 @@ Configures tabs, sections, groups, and fields found in `Store > Configuration` i
 ---
 > How do you identify the configuration scope for a given variable?
 
-Scope values come from the store, store_group, and store_website tables.
+Scope values come from the `store`, `store_group`, and `store_website` tables.
 
-The store table specifies store view names and codes
-The store_website table specifies website names and codes
-You can also find the code values using the Magento Admin.
+- The `store` table specifies store view names and codes
+- The `store_website` table specifies website names and codes
+- You can also find the code values using the Magento Admin.
 
 How to read the table:
 
