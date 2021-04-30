@@ -1085,16 +1085,6 @@ The `theme.xml` file can be used to specify the theme's parent using the `<paren
 Omitting the `<parent />` node dictates that the theme is the base, or default, theme.
 
 ---
-> How do you identify which exact theme file is used in different situations?
-
-
-
----
-> How can you override native files?
-
-
-
----
 #### 3.2. Blocks & Templates
 > How do you assign a template to a block?
 
@@ -1122,31 +1112,7 @@ To assign a template to an existing block, pass an argument to the block:
 </referenceBlock>
 ```
 ---
-> Which objects are accessible from the block?
-
-
-
----
-> What is the typical block’s role?
-
-
-
----
-> In what cases would you put your code in the `_prepareLayout()`, `_beforeToHtml()`, and `_toHtml()` methods?
-
-
-
----
-> How would you use events fired in the abstract block?
-
-
-
----
-> Describe how blocks are rendered and cached.
-
-
-
----
+#### 3.3. Identify the uses of different types of blocks
 > When would you use non-template block types?
 
 | Block Type | Path | Use |
@@ -1155,12 +1121,7 @@ To assign a template to an existing block, pass an argument to the block:
 | ListText | `vendor/magento/framework/View/Element/Text/ListTest.php` | Output each of the child blocks |
 
 ---
-> In what situation should you use a template block or other block types?
-
-
-
----
-#### 3.3. Magento Layout XML
+#### 3.4. Magento Layout XML
 > How do you use layout XML directives in your customizations?
 
 Layout XML is what links templates to blocks and there are a number of directives available for use.
@@ -1339,7 +1300,34 @@ Includes a certain layout file.
 ---
 > How do you register a new layout file?
 
+If the new page has a 3-columns-double-footer layout, create a custom page-layout XML file: `app/design/frontend/<VendorName>/<ThemeName>/Magento_Theme/page_layout/3-columns-double-footer.xml`.
 
+```xml
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="3columns"/>
+    <referenceContainer name="page.wrapper">
+        <container name="footer-bottom" as="footer-bottom" after="footer" label="Footer Bottom" htmlTag="footer" htmlClass="page-footer-bottom">
+            <container name="footer-bottom-content" as="footer-bottom-content" htmlTag="div" htmlClass="footer content">
+                <block class="Magento\Framework\View\Element\Template" name="report.bugs.bottom" template="Magento_Theme::html/bugreport.phtml"/>
+            </container>
+        </container>
+    </referenceContainer>
+</layout>
+```
+
+Add the newly created page layout to the `layouts.xml` file of the theme directory: `app/design/frontend/<VendorName>/<ThemeName>/Magento_Theme/layouts.xml`.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<page_layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/PageLayout/etc/layouts.xsd">
+    <layout id="3-columns-double-footer">
+        <label translate="true">3 Columns Double Footer</label>
+    </layout>
+</page_layouts>
+```
+
+Clean the cache by going to System > Cache Management > Flush Magento Cache or `bin/magento cache:clean`
 
 ---
 > How do you pass variables from layout to block?
@@ -1412,20 +1400,8 @@ are added to the block's `data` array and can be accessed in templates using the
 **NB:** The `helper` can only use public functions.
 
 ---
-#### 3.4. Utlise JavaScript in Magento
-> Which JavaScript modules are are suited for which tasks?
-
-
-
----
-> In which situation would you use UI Components over a regular JavaScript module?
-
-
-
----
-> Describe the use of `requirejs-config.js`, `x-magento-init`, `data-mage-init`.
-
-
+#### 3.5. Create and add code and markup to a given page
+> How do you add new content to existing pages using layout XML?
 
 ---
 ### 4.0. Working With Databases In Magento
