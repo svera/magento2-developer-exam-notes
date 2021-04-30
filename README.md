@@ -1428,42 +1428,11 @@ The Magento ORM elements are:
 - Collections are used when we want to fetch multiple rows from our table. Meaning collections are a group of models.
 
 ---
-> Describe repositories and data API classes.
-
-
-
----
-> How do you obtain an object or set of objects from the database using a repository?
-
-
+#### 4.2 how entity load and save occurs
+> How do you use the native Magento save/load process in the development process?
 
 ---
-> How do you configure and create a SearchCriteria instance using the builder?
-
-
-
----
-> How do you use Data/Api classes?
-
-
-
----
-> How do you add a new table to the database?
-
-
-
----
-> Describe the entity load and save process.
-
-
-
----
-> Describe how to extend existing entities. What mechanisms are available to extend existing classes, for example by   adding a new attribute, a new field in the database, or a new related entity?
-
-
-
----
-> Describe how to filter, sort, and specify the selected values for collections and repositories.
+#### 4.3 Describe how to filter, sort, and specify the selected values for collections and repositories.
 
 ##### Collections
 **Filter:** `$collection->addFieldToFilter()`
@@ -1478,24 +1447,8 @@ https://devdocs.magento.com/guides/v2.2/extension-dev-guide/searching-with-repos
 > How do you select a subset of records from the database?
 
 
-
 ---
-> Describe the database abstraction layer for Magento.
-
-
-
----
-> What type of exceptions does the database layer throw?
-
-
-
----
-> What additional functionality does Magento provide over Zend_Adapter?
-
-
-
----
-#### 4.2. Declarative Schema
+#### 4.4. Declarative Schema
 Declarative schema in Magento 2.3 allows developers to declare the final desired state of the database and has the system adjust to it automatically, without performing redundant operations. Developers are no longer forced to write scripts for each new version. Additionally, this approach allows data be deleted when a module is uninstalled - something that previously had to be done separately.
 
 ##### Terminology
@@ -1696,22 +1649,6 @@ Schema patches are used to make custom database schema modifications:
 - Renaming tables
 - Adding/removing columns
 - Setting primary & foreign keys
-
----
-> What is the purpose of whitelisting?
-
-
-
----
-> How to use Data and Schema patches?
-
-
-
----
-> How to manage dependencies between patch files?
-
-Dependencies between patch files are managed via the patch file's `getDependencies` method. This method should
-return an array of all of the patch files that are required to be executed **before** it.
 
 ---
 ### 5.0. Developing With Adminhtml
