@@ -1712,6 +1712,7 @@ Do not specify a `parent` attribute in the `<add />` node.
 
 #### 5.5 Create appropriate permissions for users
 > How are menu items related to ACL permissions?
+
 Menu items are not shown to users with insufficient permissions to access them.
 
 > How do you add a new user with given set of permissions?
