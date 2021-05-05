@@ -1670,14 +1670,35 @@ Schema patches are used to make custom database schema modifications:
 
 #### 5.1 Create a controller for an admin router
 > How would you create an admin controller?
+
+Admin routes go in /etc/adminhtml/routes.xml and admin router node uses id=”admin” instead of id=”standard”. All admin routes have /admin/ as the first segment of the URL.
+The controller folder directory is `[Package]\[Module]\Controller\Adminhtml\[Controller Segment]\[Action Segment]` which is similar to its front end counterpart but with no `/Adminhtml/` segment. The controller also must inherit from `Magento\Backend\App\Action` along with a `$context` variable if using `__contruct()` method.
+
 > How do you ensure the right level of security for a new controller?
+
+`_isAllowed()` is a required method for admin controllers and typically uses ACL rules to return true for access.
+The `view/adminhtml/layout` directory uses `routeId_controller_action.xml` to connect layout to route.
 
 #### 5.2 Define basic terms and elements of system configuration, including scopes, website, store, store view
 > How would you add a new system configuration option?
+
+The system configuration goes in `etc/adminhtml/system.xml` and has element nodes like group, tab, section, and fields.
+To set default values of `system.xml`, use the `etc/config.xml` file.
+List of scopes ranges:
+* Global scope: System-wide settings and resources
+* Website scope: Settings and resources that are limited to the current website. Each website has a default store.
+* Store scope: Settings and resources that are limited to the current store. Each store has a default root category (main menu) and default store view.
+* Store view scope: Settings and resources that are limited to the current store view.
+The parameters `showInDefault = “1”`, `showInWebsite = “1”` and `showInStore = “1”` indicate which scope it is available.
+
 > What is the difference in this process for different option types (secret, file)?
 
 #### 5.3 Define / identify basic terms and elements of ACL
 > How would you add a new ACL resource to a new entity?
+
+`const ADMIN_RESOURCE = [RESOURCE];` is a required constant to define the ACL for the controllers.
+`const ADMIN_RESOURCE = 'Magento_Sales::actions_view';`
+
 > How do you manage the existing ACL hierarchy?
 
 #### 5.4 Set up a menu item
