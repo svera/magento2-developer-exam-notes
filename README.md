@@ -1431,6 +1431,12 @@ The Magento ORM elements are:
 #### 4.2 how entity load and save occurs
 > How do you use the native Magento save/load process in the development process?
 
+* Load: First calls beforeLoad which can be used for plugin. Creates connection to database and loads a select query using parameters to fetch the row and set the data. Then calls afterLoad method for plugins and object is returned.
+
+* Save: If object is deleted then it deletes it. If object is not modified then it is committed and method is returned. Checks for validation before save then beforeSave is called. If object can be saved then it is saved and afterSave is called and event is dispatched.
+
+You can use native Magento load/save to do basic get/set and customize it with plugins.
+
 ---
 #### 4.3 Describe how to filter, sort, and specify the selected values for collections and repositories.
 
@@ -1446,6 +1452,11 @@ https://devdocs.magento.com/guides/v2.2/extension-dev-guide/searching-with-repos
 ---
 > How do you select a subset of records from the database?
 
+For `getList` method, a `SearchCriteria` object with set parameters has to be passed in the method.
+* Search Criteria: A `SearchCriteria` object contains smaller objects such as filters and filter groups.
+  * Filter: `Filter` class is the smallest object of `SearchCriteria` object and allows you to filter searches with set fields, values and conditions.
+  * Filter Group: Like a filter but allows you to apply multiple filters to a search. `OR` statements join filters in a single filter group. `AND` statements join filter groups inside the search criteria object.
+  * Sort Order: Sorts the results returned from search criteria and takes in field parameter (e.g. email) and direction parameter (e.g. ASC).
 
 ---
 #### 4.4. Declarative Schema
