@@ -1801,7 +1801,7 @@ The product type model is responsible for:
 ---
 #### 6.2. Category Properties
 > How do you create and manage categories?
-
+Categories can be made in the admin panel under Category menu item and is a tree-link structure. Categories can be made programmatically using `CategoryInterfaceFactory` object and saving with `CategoryInterfaceRepository`.
 ---
 #### 6.3. Product/Category Relations
 > How do you assign and unassign products to categories?
