@@ -1821,13 +1821,17 @@ Each product in the Bundle product is rendered as a single line item.
 
 ---
 > How can you create a custom shopping cart renderer?
+
 You can customize the shopping cart by overriding with a module at `vendor/module/view/frontend/layout/checkout_cart_item_renderers.xml`.
 The block class depends upon the `Magento\Checkout\Block\Cart\Item\Renderer` class and includes Actions like `/Renderer/Action/Edit and /Renderer/Action/Remove`.
+
 ---
 #### 6.5. Native Shipping Functionality
 > How do you customize the shipment step of order management?
+
 Basic steps of customizing shipping includes adding an `etc/config.xml` file and an `etc/adminhtml/system.xml` file.
 In order to extend and customize shipping, you must extend `\Magento\Shipping\Model\Carrier\AbstractCarrier` and implement `\Magento\Shipping\Model\Carrier\CarrierInterface`.
+
 ---
 #### 6.6. Customer Account Area Customisation
 > How would you add another tab in the “My Account” section?
