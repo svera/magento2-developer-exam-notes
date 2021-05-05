@@ -1879,8 +1879,11 @@ $attribute->save();
 ---
 #### 6.8. Customising Customer Addresses
 > How do you add another field to the customer address entity using a setup script?
+
 To add another field to customer address using a setup script, you use `setup/InstallData.php` while using EAV. Make sure the attribute is assigned to a form (such as `customer_form_attribute` table) to make sure it is saveable. The customer address field must be manually added just like other attributes.
+
 ---
+
 ## References
 ### Magento 2 Dev Docs
 [Component Load Order](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/build/module-load-order.html)
