@@ -1700,7 +1700,27 @@ Your controller in the admin application must implement an `_isAllowed()` method
 
 > How do you manage the existing ACL hierarchy?
 
-Editing `etc/acl.xml`
+Editing `etc/acl.xml`. `sorOrder` define the position where the option is displayed in the menu.
+
+```xml
+<acl>
+	<resources>
+	    <resource id="Magento_Backend::admin">
+		<resource id="Magenest_HelloWorld::helloworld" title="Hello World" sortOrder="51">
+		    <resource id="Magenest_HelloWorld::post" title="Manage Post" sortOrder="10"/>
+		    <resource id="Magenest_HelloWorld::helloworld_configuration" title="Configuration" sortOrder="99" />
+		</resource>
+		<resource id="Magento_Backend::stores">
+		    <resource id="Magento_Backend::stores_settings">
+			<resource id="Magento_Config::config">
+			    <resource id="Magenest_HelloWorld::helloworld_config" title="Hello World"/>
+			</resource>
+		    </resource>
+		</resource>
+	    </resource>
+	</resources>
+</acl>
+```
 
 #### 5.4 Set up a menu item
 > How do you add a new menu item to a given tab?
