@@ -1676,7 +1676,7 @@ The controller folder directory is `[Package]\[Module]\Controller\Adminhtml\[Con
 
 > How do you ensure the right level of security for a new controller?
 
-`_isAllowed()` is a required method for admin controllers and typically uses ACL rules to return true for access.
+`_isAllowed()` is a required method for admin controllers and typically uses ACL rules to return true for access. By default it returns `true` so you should define it to restrict from user.
 The `view/adminhtml/layout` directory uses `routeId_controller_action.xml` to connect layout to route.
 
 #### 5.2 Define basic terms and elements of system configuration, including scopes, website, store, store view
