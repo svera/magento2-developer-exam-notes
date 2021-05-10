@@ -1701,6 +1701,8 @@ The parameters `showInDefault = “1”`, `showInWebsite = “1”` and `showInS
 
 > How do you manage the existing ACL hierarchy?
 
+Editing `etc/acl.xml`
+
 #### 5.4 Set up a menu item
 > How do you add a new menu item to a given tab?
 
