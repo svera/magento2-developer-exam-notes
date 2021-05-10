@@ -1696,8 +1696,7 @@ The parameters `showInDefault = “1”`, `showInWebsite = “1”` and `showInS
 #### 5.3 Define / identify basic terms and elements of ACL
 > How would you add a new ACL resource to a new entity?
 
-`const ADMIN_RESOURCE = [RESOURCE];` is a required constant to define the ACL for the controllers.
-`const ADMIN_RESOURCE = 'Magento_Sales::actions_view';`
+Your controller in the admin application must implement an `_isAllowed()` method or const `ADMIN_RESOURCE` which determines if a user can access the URL endpoint.
 
 > How do you manage the existing ACL hierarchy?
 
