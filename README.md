@@ -1739,6 +1739,7 @@ Do not specify a `parent` attribute in the `<add />` node.
 Menu items are not shown to users with insufficient permissions to access them.
 
 > How do you add a new user with given set of permissions?
+
 Navigate to `System > Permissions > All Users` in Magento admin, add a new user, and set their role under `User Information > User Role`.
 
 This can also be done programmatically:
