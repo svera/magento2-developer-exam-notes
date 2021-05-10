@@ -1671,7 +1671,7 @@ Schema patches are used to make custom database schema modifications:
 #### 5.1 Create a controller for an admin router
 > How would you create an admin controller?
 
-Admin routes go in /etc/adminhtml/routes.xml and admin router node uses id=”admin” instead of id=”standard”. All admin routes have /admin/ as the first segment of the URL.
+Admin routes go in `/etc/adminhtml/routes.xml` and admin router node uses `id=”admin”` instead of `id=”standard”`. All admin routes have `/admin/` as the first segment of the URL.
 The controller folder directory is `[Package]\[Module]\Controller\Adminhtml\[Controller Segment]\[Action Segment]` which is similar to its front end counterpart but with no `/Adminhtml/` segment. The controller also must inherit from `Magento\Backend\App\Action` along with a `$context` variable if using `__contruct()` method.
 
 > How do you ensure the right level of security for a new controller?
