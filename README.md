@@ -1784,7 +1784,6 @@ public function execute()
             'lastname'          => 'Surname',
             'email'             => 'admin@test.com',
             'password'          => 'badpassword123',       
-5
             'is_active'         => 1
         ]
     );
