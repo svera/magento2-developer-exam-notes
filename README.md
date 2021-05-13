@@ -371,6 +371,41 @@ configuration path as the minimum required parameter e.g. `web/secure/base_url`.
 ---
 > How can you override system configuration values for a given store using XML configuration?
 
+Magento may load our custom system config and merge into the exist nodes. In our custom system config, we should try:
+
+`Vendor/ModuleName/etc/adminhtml/system.xml`
+
+```xml
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="checkmo">
+                <field id="order_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Custom New Order Status</label> <!-- Custom label -->
+                </field>  
+            </group>
+        </section>
+    </system>
+</config>
+```
+
+Remember to add overridden module - Magento_OfflinePayments
+
+`Vendor/ModuleName/etc/module.xml`
+
+```xml
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Vendor_YourModule" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_OfflinePayments"/>
+        </sequence>
+    </module>
+</config>
+```
+
 ---
 #### 1.4. Demonstrate How To Use Dependency Injection
 > How are objects realized in code?
