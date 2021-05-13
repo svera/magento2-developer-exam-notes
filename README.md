@@ -434,7 +434,7 @@ provides a simple interface to substitute objects as well as modify existing one
 > How can you override a native class, inject your class into another object, and use other techniques available in `di.xml` (for example, `virtualTypes`)?
 
 ##### Overriding Native Classes
-Preferences are used to substitute entire classes. They can also be used to specify concrete classes for interfaces:
+`preference` nodes are used to substitute entire classes through `di.xml`. They can also be used to specify concrete classes for interfaces:
 ```XML
 <preference for="Magento\GoogleTagManager\Block\ListJson"
             type="YourCompany\YourModule\Path\To\Your\Class"
@@ -442,7 +442,7 @@ Preferences are used to substitute entire classes. They can also be used to spec
 ```
 
 ##### Injecting Your Class into Other Objects
-Specify a `<type>` entry with your class as an `<argument>`:
+Specify a `<type>` entry with your class as an `<argument>` in `di.xml`:
 ```XML
 <type name="Path\To\Your\Class\To\Inject\Into">
     <arguments>
