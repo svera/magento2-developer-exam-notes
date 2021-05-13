@@ -591,8 +591,26 @@ Plugins can not be used on the following:
 ---
 > In which cases should plugins be avoided?
 
+Plugins are useful to modify the input, output, or execution of an existing method. Plugins are also best to be avoided in situations where an event observer will work. Events work well when the flow of data does not have to be modified.
 
- 
+4. Interception
+
+4.1. Around-plugins SHOULD only be used when behavior of an original method is supposed to be substituted in certain scenarios.
+
+4.2. Plugins SHOULD NOT be used within own module .
+
+4.3. Plugins SHOULD NOT be added to data objects.
+
+4.4. Plugins MUST be stateless.
+
+...
+
+14. Events
+
+14.1. All values (including objects) passed to an event MUST NOT be modified in the event observer. Instead, plugins SHOULD BE used for modifying the input or output of a function.
+
+Avoid using around method plugins when they are not required because they increase stack traces and affect performance. The only use case for around method plugins is when the execution of all further plugins and original methods need termination. Use after method plugins if you require arguments for replacing or altering function results.
+
 ---
 #### 1.6. Configure Event Observers & Scheduled Jobs
 Observers listen for events that are triggered in Magento. Scheduled jobs perform an action at a specified interval.
