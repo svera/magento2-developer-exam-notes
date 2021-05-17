@@ -868,7 +868,7 @@ For example:
 * Add, commit, and push code changes.
 
 ```
-git add -A`
+git add -A
 git commit -m "Install <extension-name>"
 git push origin <branch-name>
 ```
