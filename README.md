@@ -657,21 +657,6 @@ To configure a scheduled job you need to assign it a name, specify the function 
 ```
 
 ---
-> Which parameters are used in configuration?
-
-
-
----
-> How can configuration interact with server configuration?
-
-
-
----
-> Identify the function and proper use of automatically available events, for example *_load_after, etc.
-
-
-
----
 #### 1.7. Utilise the CLI
 > Which commands are available?
 
