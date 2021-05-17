@@ -1494,10 +1494,10 @@ You can use native Magento load/save to do basic get/set and customize it with p
 #### 4.3 Describe how to filter, sort, and specify the selected values for collections and repositories.
 
 ##### Collections
-**Filter:** `$collection->addFieldToFilter()`
-**Sort:** `$collection->addOrder()`
-**Select Column:** `$collection->addFieldToSelect()`
-**Pagination:** `$collection->setPageSize()` and `$collection->setCurPage()`
+* **Filter:** `$collection->addFieldToFilter()`
+* **Sort:** `$collection->addOrder()`
+* **Select Column:** `$collection->addFieldToSelect()`
+* **Pagination:** `$collection->setPageSize()` and `$collection->setCurPage()`
 
 ##### Repositories
 https://devdocs.magento.com/guides/v2.2/extension-dev-guide/searching-with-repositories.html
