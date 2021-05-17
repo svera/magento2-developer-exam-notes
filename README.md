@@ -572,11 +572,6 @@ Examples of how this prioritisation is realised can be found in the [Magento 2 d
 The `sortOrder` attribute defines the order in which to execute plugins, starting from the lowest and working through to the highest.
 
 ---
-> How do you debug a plugin if it doesn’t work?
-
-
-
----
 > What are the limitations of using plugins for customization?
 
 Plugins can not be used on the following:
