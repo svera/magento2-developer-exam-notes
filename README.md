@@ -867,9 +867,11 @@ For example:
 
 * Add, commit, and push code changes.
 
-`git add -A`
-`git commit -m "Install <extension-name>"`
-`git push origin <branch-name>`
+```
+git add -A`
+git commit -m "Install <extension-name>"
+git push origin <branch-name>
+```
 
 When installing an extension, you must include the composer.lock file when you push code changes to the remote environment. The composer install command reads the `composer.lock` file to enable the defined dependencies in the remote environment.
 
