@@ -842,6 +842,47 @@ Checks whether the Magento database needs to be upgraded.
 ##### `setup:upgrade`
 Synchronises module versions in the database with those defined in the codebase.
 
+#### 1.8 Describe how extensions are installed and configured
+> How would you install and verify an extension by a customer’s request?
+
+We recommend working in a development branch when adding an extension to your implementation. If you do not have a branch, see the Get started creating branches topic. When installing an extension, the extension name (<VendorName>_<ComponentName>) is automatically inserted in the app/etc/config.php file. There is no need to edit the file directly.
+
+To install an extension:
+
+* On your local workstation, change to the Cloud project root directory.
+
+* Create or checkout a development branch. See branching.
+
+* Using the Composer name and version, add the extension to the require section of the composer.json file.
+
+`composer require <extension-name>:<version> --no-update`
+
+For example:
+
+`composer require pixlee/magento2:1.0.1 --no-update`
+
+* Update the project dependencies.
+
+`composer update`
+
+* Add, commit, and push code changes.
+
+`git add -A`
+`git commit -m "Install <extension-name>"`
+`git push origin <branch-name>`
+
+When installing an extension, you must include the composer.lock file when you push code changes to the remote environment. The composer install command reads the `composer.lock` file to enable the defined dependencies in the remote environment.
+
+After the build and deploy finishes, use a SSH to log in to the remote environment and verify the extension installed.
+
+`bin/magento module:status <extension-name>`
+
+An extension name uses the format: <VendorName>_<ComponentName>.
+
+Sample response:
+
+`Module is enabled`
+
 ---
 ### 2.0 Request Flow Processing
 | Certification | Exam Content |
