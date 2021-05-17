@@ -843,42 +843,6 @@ Checks whether the Magento database needs to be upgraded.
 Synchronises module versions in the database with those defined in the codebase.
 
 ---
-#### 1.8. Managing the Cache
-> Describe the cache types.
-
-
-
----
-> What tools are there to manage the cache?
-
-
-
----
-> How do you add dynamic content to pages served from the full page cache?
-
-
-
----
-> How would you clean the cache?
-
-
-
----
-> When would you refresh/flush the cache storage?
-
-
-
----
-> How do you clear the cache programmatically?
-
-
-
----
-> What mechanisms are available for clearing all or part of the cache?
-
-
-
----
 ### 2.0 Request Flow Processing
 | Certification | Exam Content |
 | :-----------: | :----------: |
