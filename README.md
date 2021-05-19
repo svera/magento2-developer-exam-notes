@@ -1375,7 +1375,7 @@ The Magento ORM elements are:
 ---
 > How do they relate to one another?
 
-- Models are like a black box which provides a layer of abstraction on top of the resource models. The fetching, extraction, and manipulation of data occur through models. As a rule of thumb, every entity we create (i.e. every table we create in our database) should have its own model class. Every model extends the `Magento\Framework\Model\AbstractModelclass`, which inherits the `\Magento\Framework\DataObjectclass`, hence, we can call the setDataand getData functions on our model, to get or set the data of a model respectively.
+- Models are like a black box which provides a layer of abstraction on top of the resource models. The fetching, extraction, and manipulation of data occur through models. As a rule of thumb, every entity we create (i.e. every table we create in our database) should have its own model class. Every model extends the `Magento\Framework\Model\AbstractModelclass`, which inherits the `\Magento\Framework\DataObjectclass`, hence, we can call the `setData()` and `getData()` functions on our model, to get or set the data of a model respectively.
 - All of the actual database operations are executed by the resource model. Every model must have a resource model, since all of the methods of a resource model expects a model as its first parameter. All resource models must extend the
 `Magento\Framework\Model\ResourceModel\Db\AbstractDbclass`.
 - Collections are used when we want to fetch multiple rows from our table. Meaning collections are a group of models.
@@ -1384,9 +1384,9 @@ The Magento ORM elements are:
 #### 4.2 how entity load and save occurs
 > How do you use the native Magento save/load process in the development process?
 
-* Load: First calls beforeLoad which can be used for plugin. Creates connection to database and loads a select query using parameters to fetch the row and set the data. Then calls afterLoad method for plugins and object is returned.
+* Load: First calls `beforeLoad()` which can be used for plugin. Creates connection to database and loads a select query using parameters to fetch the row and set the data. Then calls `afterLoad()` method for plugins and object is returned.
 
-* Save: If object is deleted then it deletes it. If object is not modified then it is committed and method is returned. Checks for validation before save then beforeSave is called. If object can be saved then it is saved and afterSave is called and event is dispatched.
+* Save: If object is deleted then it deletes it. If object is not modified then it is committed and method is returned. Checks for validation before save then `beforeSave()` is called. If object can be saved then it is saved and afterSave is called and event is dispatched.
 
 You can use native Magento load/save to do basic get/set and customize it with plugins.
 
