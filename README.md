@@ -1400,6 +1400,93 @@ You can use native Magento load/save to do basic get/set and customize it with p
 * **Pagination:** `$collection->setPageSize()` and `$collection->setCurPage()`
 
 ##### Repositories
+
+Repositories give service requestors the ability to perform create, read, update, and delete (CRUD) operations on entities or a list of entities. A repository is an example of a service contract, and its implementation is part of the domain layer.
+
+A repository should be stateless after instantiation. This means that every method call should not rely on previous calls nor should it affect later method calls. Any field contained in the repository class must also be stateless.
+
+If your repository needs to provide functionality that requires state, such as for caching, use the registry pattern. A good example that uses this pattern is the `CustomerRepository` class.
+
+* **Search Criteria**
+A Search Criteria is an implementation of the `SearchCriteriaInterface` class that allows you to build custom requests with different conditions.
+
+Repositories use this class to retrieve entities based on a matching criteria.
+
+* **Filter**
+The Filter class is the smallest part of a Search Criteria. It allows you to add a custom field, value, and condition type to the criteria.
+
+Example of how to define a Filter:
+
+```php
+$filter
+    ->setField("url")
+    ->setValue("%magento.com")
+    ->setConditionType("like");
+```
+
+This filter will find all urls with the suffix of “magento.com”.
+
+* **Filter Group**
+
+The `FilterGroup` class acts like a collection of Filters that apply one or more criteria to a search.
+
+The boolean OR statement joins Filters inside a single Filter Group. The boolean AND statement joins Filter Groups inside a Search Criteria.
+
+For example:
+
+```php
+$filter1
+    ->setField("url")
+    ->setValue("%magento.com")
+    ->setConditionType("like");
+
+$filter2
+    ->setField("store_id")
+    ->setValue("1")
+    ->setConditionType("eq");
+
+$filterGroup1->setFilters([$filter1, $filter2]);
+
+$filter3
+    ->setField("url_type")
+    ->setValue(1)
+    ->setConditionType("eq");
+
+$filterGroup2->setFilters([$filter3]);
+
+$searchCriteria->setFilterGroups([$filterGroup1, $filterGroup2]);
+```
+
+The code above creates a Search Criteria with the Filters put together in the following way: `(url like %magento.com OR store_id eq 1) AND (url_type eq 1)`
+
+* **Sorting**
+
+To apply sorting to the Search Criteria, use the `SortOrder` class.
+
+Field and direction make up the two parameters that define a Sort Order object. The field is the name of the field to sort. The direction is the method of sorting whose value can be ASC or DESC.
+
+The example below defines a Sort Order object that will sort the customer email in ascending order:
+
+```php
+$sortOrder
+    ->setField("email")
+    ->setDirection("ASC");
+
+$searchCriteria->setSortOrders([$sortOrder]);
+Pagination
+The setPageSize function paginates the Search Criteria by limiting the amount of entities it retrieves:
+
+$searchCriteria->setPageSize(20); //retrieve 20 or less entities
+```
+	
+The setCurrentPage function sets the current page:
+
+```php
+$searchCriteria
+    ->setPageSize(20)
+    ->setCurrentPage(2); //show the 21st to 40th entity
+```
+	
 https://devdocs.magento.com/guides/v2.2/extension-dev-guide/searching-with-repositories.html
 
 ---
