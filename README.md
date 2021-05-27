@@ -1473,13 +1473,16 @@ $sortOrder
     ->setDirection("ASC");
 
 $searchCriteria->setSortOrders([$sortOrder]);
-Pagination
-The setPageSize function paginates the Search Criteria by limiting the amount of entities it retrieves:
+```
 
+* **Pagination**
+The `setPageSize` function paginates the Search Criteria by limiting the amount of entities it retrieves:
+
+```php
 $searchCriteria->setPageSize(20); //retrieve 20 or less entities
 ```
 	
-The setCurrentPage function sets the current page:
+The `setCurrentPage` function sets the current page:
 
 ```php
 $searchCriteria
